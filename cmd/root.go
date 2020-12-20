@@ -15,7 +15,7 @@ var rootCmd = &cobra.Command{
 	Use:   "kea-ctrl",
 	Short: "CLI utility to interact with a Kea Agent Controller",
 	Long: `kea-ctrl is a cli for the Kea Agent Controller API.
-    `,
+	`,
 }
 
 func Execute() {
@@ -28,11 +28,11 @@ func Execute() {
 func init() {
 	cobra.OnInitialize(initConfig)
 	rootCmd.PersistentFlags().StringVar(&cfgFile, "config", "", "config file (default is $HOME/.kea-ctrl.yaml)")
+
 	rootCmd.Flags().BoolP("toggle", "t", false, "Help message for toggle")
 	rootCmd.PersistentFlags().StringP("host", "H", "", "FQDN for Kea Agent Controller")
 	rootCmd.PersistentFlags().StringP("service", "s", "", "Kea service")
 	viper.BindPFlag("host", rootCmd.PersistentFlags().Lookup("host"))
-
 }
 
 func initConfig() {
